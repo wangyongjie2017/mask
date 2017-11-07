@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mask</title>
+	<style type="text/css">
+		body{
+			background: url('img/baidu_demo.png') top center no-repeat;
+			padding: 0;margin: 0;
+			font-size: 12px;
+			font-family: "微软雅黑";
+
+		}
+		a{
+			text-decoration: none;
+		}
+		.login{
+			position: absolute;
+			top: 10px;
+			right: 20px;
+		}
+		.mask{
+			width: 100%;
+			height: 100%;
+			background: #000;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;/**/
+			z-index: 800;
+			opacity: 0.4;
+			filter: Alpha(opacity=40);
+		}
+		.container{
+			width: 380px;
+			height: auto;
+			position: absolute;
+			z-index: 9000;
+			top: 100px;
+			left: 200px;
+			background: #fff;
+			border: 1px solid #D5D5D5;
+		}
+
+		.title{
+			height:48px;
+			background: #efefef;
+			padding: 0 20px;
+			border-bottom: 1px solid #D5D5D5;
+			cursor: move;
+
+		}
+		.title h2{
+			padding: 0;
+			margin: 0;
+			font-size: 16px;
+			line-height: 48px;
+			color: #000;
+			font-weight: normal;
+		}
+		.title .closeBtn{
+			width: 16px;
+			height: 16px;
+			background: url('img/close_def.png') no-repeat;
+			display:block;
+			position: absolute;
+			top: 12px;
+			right: 20px;
+			cursor: pointer;
+		}
+		.title .closeBtn:hover{
+			background: url('img/close_hov.png');
+		}
+		.content{
+			margin-top: 20px;
+		}
+		.content input{
+			border: 1px solid #d5d5d5;
+			width: 300px;
+			height: 40px;
+			display: block;
+			padding-left: 35px;
+			margin:10px 0px 0px 40px; 
+			outline: none;
+			color: #c1c1c1;
+			box-sizing: border-box;
+		}
+		.content .text{
+			background: url('img/input_username.png') no-repeat;
+			background-position: 5px -3px;
+		}
+		.content .pwd{
+			background: url('img/input_password.png') no-repeat;
+			background-position: 5px -3px;			
+		}
+
+		.forget ,.sign{
+			float: right;
+			margin:10px 20px 10px 0px;
+		}
+		.content .sign{
+			margin-bottom: 20px;
+		}
+		.content .submit{
+		 	width: 300px;
+			height:50px;
+		    margin:40px 40px 10px 40px;
+			background-color: #3b7ae3;
+		}
+		.submit a{
+			display: inline-block;
+			position: absolute;
+			margin-left:140px;
+			line-height: 50px;
+			font-size: 16px;
+			color: #fff;
+			text-decoration: none;
+		}
+		.submit:hover{
+			background-color: #3f81b0;
+			cursor: pointer;
+		}
+
+		#containerID{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="login"><a href="javascript:loginOpen();">登陆</a></div>
+	<div class="mask" id="maskID"></div>
+	<div class="container" id="containerID">
+		<div class="title">
+			<h2>登录通行证</h2>
+			<a class="closeBtn" href="javascript:loginClose();"></a>
+		</div>
+		<div class="content">
+			<form action="#">
+				<input class="text" type="text" value="手机 / 邮箱 / 用户名">
+				<input class="pwd" type="text" value="密码">
+				<div class="forget"><a href="#">忘记密码</a></div>
+				<div class="submit"><a href="###">登录</a></div>
+				<div class="sign"><a href="#">立即注册</a></div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var maskID=document.getElementById("maskID");
+		var containerID=document.getElementById("containerID");
+		function loginOpen(){
+			maskID.style.display="block";
+			containerID.style.display="block";	
+	
+		}
+		function loginClose(){
+			maskID.style.display="none";
+			containerID.style.display="none";
+		}
+	</script>
+</body>
+</html>
